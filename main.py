@@ -16,6 +16,18 @@
 # rate = input("enter rate \n")
 # print(float(hrs)*float(rate))
 
-# week3
+# week3, week4
+# P1
+#hrs = float(input("Enter hrs \n"))
+# rate = float(input("Enter rate \n"))
+# if hrs > 40:
+#     res = (hrs-40)*rate*1.5 + 40*rate
+# else:
+#     res = hrs*rate
+#
+# print(res)
+
+# week 5
+
 
 
