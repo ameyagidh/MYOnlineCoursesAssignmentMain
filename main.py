@@ -1,6 +1,6 @@
 # Python for every body
 # https://github.com/ameyagidh/MYOnlineCoursesAssignmentMain.git
-# Token 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
+# Token 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
 # /Users/ameyagidh/AAAmeya/AllWork/PythonForEverybody
 
 # Course 1
@@ -86,6 +86,66 @@
 #     ctr += 1
 #     total += float(line[idx+1:].strip())
 # print(total/ctr)
+
+# P4
+# fname = "romeo.txt"
+# fh = open(fname)
+# res = []
+# for line in fh:
+#     words = line.split()
+#     # for word in words:
+#     res.append(words)
+# res2 = []
+# for i in res:
+#     res2.extend(i)
+# res2 = list(set(res2))
+# res2.sort()
+# print(res2)
+
+# P5
+from collections import Counter
+# fname = "mbox-short.txt"
+# fh = open(fname,"r")
+# # c = 0
+# res = {}
+# for line in fh:
+#     if not line.startswith("From "):
+#            continue
+#     words = line.split()
+#     res[words[1]] = 1+res.get(words[1],0)
+    # print(words[1])
+    # c += 1
+# print(c)
+# Counter(res)
+# print(res)
+# print(max(res.values()))
+# curr = max(res.values())
+# for k,v in res.items():
+#     if v == curr:
+#         print(k)
+
+# fname = "mbox-short.txt"
+# fh = open(fname,"r")
+# # f = fh.read()
+# # print(f)
+# dicta = {}
+# for line in fh:
+#     if not line.startswith("From "):
+#         continue
+#     words = line.split()
+#     temp = words[5].split(":")[1]
+#     dicta[temp] = 1 + dicta.get(temp,0)
+# print(dicta.keys())
+# maxi = max(dicta.values())
+# for k,v in dicta.items():
+#     if v == maxi:
+#         print(k)
+
+
+
+
+
+
 
 
 
