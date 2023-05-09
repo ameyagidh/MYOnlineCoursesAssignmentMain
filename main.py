@@ -141,6 +141,50 @@ from collections import Counter
 #     if v == maxi:
 #         print(k)
 
+# Using Regex
+import re
+# fname = "regex_sum_42.txt"
+# fh = open(fname,"r")
+# pattern = '[0-9]+'
+# # 1 or more is + 0 or more is *
+# sum_ = 0
+# for line in fh:
+#     a = re.findall(pattern,line)
+#     if a == []:
+#         continue
+#     for each in a:
+#         sum_ += float(each)
+# print(sum_)
+
+# Http
+# import socket
+# url = "data.pr4e.org"
+# mysock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+# mysock.connect((url,80))
+# cmd = 'GET http://data.pr4e.org/intro-short.txt HTTP/1.0\r\n\r\n'.encode()
+# mysock.send(cmd)
+# c = 0
+# str = ""
+# while True:
+#     c += 1
+#     data = mysock.recv(512)
+#     if len(data)<1:
+#         break
+#     str += data.decode()
+# print(str)
+# lastMod=re.findall('Last-Modified: (.+)\r',str)
+# print(lastMod)
+
+# Beautiful Soup
+
+
+
+
+
+
+
+
+
 
 
 
