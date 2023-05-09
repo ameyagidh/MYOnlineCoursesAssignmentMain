@@ -175,7 +175,97 @@ import re
 # lastMod=re.findall('Last-Modified: (.+)\r',str)
 # print(lastMod)
 
+# Tabular data structure
 # Beautiful Soup
+import ssl, urllib.request,urllib.parse,urllib.error
+from bs4 import BeautifulSoup
+# url = "https://py4e-data.dr-chuck.net/comments_22077.html"
+# ctx = ssl.create_default_context()
+# ctx.check_hostname = False
+# ctx.verify_mode = ssl.CERT_NONE
+# html = urllib.request.urlopen(url,context=ctx).read()
+# soup = BeautifulSoup(html,"html.parser")
+# tags = soup('span')
+# pattern = "[0-9]+"
+# sum_ = 0
+# for tag in tags:
+#     # print(type(tag))
+#     # print(tag.contents)
+#     # print(tag)
+#     val = re.findall(pattern,tag.contents[0])
+#     print(val)
+#     sum_ += float(val[0])
+# print(sum_)
+
+
+# Beautiful soup 2
+# jumping over the urls
+
+# url = "http://py4e-data.dr-chuck.net/known_by_Fikret.html"
+# itr = 3
+# pos = 3
+# for each in range(itr):
+#     ctx = ssl.create_default_context()
+#     ctx.check_hostname = False
+#     ctx.verify_mode = ssl.CERT_NONE
+#     html = urllib.request.urlopen(url, context=ctx).read()
+#     soup = BeautifulSoup(html, "html.parser")
+#     tags = soup("a")
+#     curr_lst = []
+#     for tag in tags:
+#         # print(tag.get("href",None))
+#         curr_lst.append(tag.get("href",None))
+#     url = curr_lst[pos-1]
+#     print(url)
+
+# xml
+import xml.etree.ElementTree as et
+# ctx = ssl.create_default_context()
+# ctx.check_hostname = False
+# ctx.verify_mode = ssl.CERT_NONE
+# url = "http://py4e-data.dr-chuck.net/comments_22079.xml "
+# html = urllib.request.urlopen(url, context=ctx).read()
+# print(html)
+# tree = et.fromstring(html)
+# for tag in tree.findall("comments/comment"):
+#     print(tag.find("count").text)
+#     print(tag.find("name").text)
+
+# json
+import json
+# url = "http://py4e-data.dr-chuck.net/comments_22080.json"
+# html = urllib.request.urlopen(url).read()
+# json_ = json.loads(html.decode())
+# jd = json.dumps(json_,indent=2)
+# # print(type(jd))
+# # print(jd)
+# ex = json_["comments"]
+# for val in ex:
+#     print(val["count"])
+
+# url = "http://py4e-data.dr-chuck.net/geojson?"
+# loc = "Northeastern University"
+#
+# ans = url + urllib.parse.urlencode({"address":loc})
+# uh = urllib.request.urlopen(ans).read()
+# # print(uh.decode())
+# js= json.loads(uh)
+# id = js['results'][0]["place_id"]
+# print(id)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
