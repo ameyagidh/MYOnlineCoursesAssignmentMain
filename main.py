@@ -284,55 +284,56 @@ import sqlite3
 # curr.close()
 
 # P1
-conn = sqlite3.connect('rosterdb.sqlite')
-curr = conn.cursor()
+# conn = sqlite3.connect('rosterdb.sqlite')
+# curr = conn.cursor()
+#
+# curr.executescript('''
+# DROP TABLE IF EXISTS User;
+# DROP TABLE IF EXISTS Member;
+# DROP TABLE IF EXISTS Course;
+#
+# CREATE TABLE User(
+#     name TEXT UNIQUE,
+#     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE
+# );
+#
+# CREATE TABLE Member(
+#     user_id     INTEGER,
+#     course_id   INTEGER,
+#     role        INTEGER,
+#     PRIMARY KEY (user_id, course_id)
+# );
+#
+# CREATE TABLE Course(
+#     title  TEXT UNIQUE,
+#     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE
+# )
+#
+# ''')
+#
+#
+# fname = "roster_data.json"
+# fh = open(fname,"r").read()
+# js = json.loads(fh)
+# for line in js:
+#     # print(line[0],line[1],line[2])
+#     curr.execute('''INSERT OR IGNORE INTO User(name)
+#      VALUES(?)
+#      ''',(line[0],))
+#     curr.execute('SELECT id FROM User WHERE name = ? ', (line[0], ))
+#     usr_id = curr.fetchone()[0]
+#     curr.execute('''INSERT OR IGNORE INTO Course(title)
+#          VALUES(?)
+#          ''', (line[1],))
+#     curr.execute('SELECT id FROM Course WHERE title = ? ', (line[1], ))
+#     cr_id =curr.fetchone()[0]
+#     curr.execute('''INSERT OR REPLACE INTO Member
+#             (user_id, course_id,role) VALUES ( ?, ?, ? )''',
+#                 (usr_id, cr_id, int(line[2])))
+#     conn.commit()
+# curr.close()
 
-curr.executescript('''
-DROP TABLE IF EXISTS User;
-DROP TABLE IF EXISTS Member;
-DROP TABLE IF EXISTS Course;
-
-CREATE TABLE User(
-    name TEXT UNIQUE,
-    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE
-);
-    
-CREATE TABLE Member(
-    user_id     INTEGER,
-    course_id   INTEGER,
-    role        INTEGER,
-    PRIMARY KEY (user_id, course_id)
-);
-    
-CREATE TABLE Course(
-    title  TEXT UNIQUE,
-    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE
-)
-
-''')
-
-
-fname = "roster_data.json"
-fh = open(fname,"r").read()
-js = json.loads(fh)
-for line in js:
-    # print(line[0],line[1],line[2])
-    curr.execute('''INSERT OR IGNORE INTO User(name)
-     VALUES(?)
-     ''',(line[0],))
-    curr.execute('SELECT id FROM User WHERE name = ? ', (line[0], ))
-    usr_id = curr.fetchone()[0]
-    curr.execute('''INSERT OR IGNORE INTO Course(title)
-         VALUES(?)
-         ''', (line[1],))
-    curr.execute('SELECT id FROM Course WHERE title = ? ', (line[1], ))
-    cr_id =curr.fetchone()[0]
-    curr.execute('''INSERT OR REPLACE INTO Member
-            (user_id, course_id,role) VALUES ( ?, ?, ? )''',
-                (usr_id, cr_id, int(line[2])))
-    conn.commit()
-curr.close()
-
+# P2
 
 
 
