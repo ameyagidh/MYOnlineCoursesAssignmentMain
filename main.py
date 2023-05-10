@@ -333,7 +333,6 @@ import sqlite3
 #     conn.commit()
 # curr.close()
 
-# P2
 
 
 
