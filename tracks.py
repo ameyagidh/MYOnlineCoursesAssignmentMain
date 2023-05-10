@@ -3,7 +3,7 @@ import sqlite3
 
 conn = sqlite3.connect('trackdb.sqlite')
 cur = conn.cursor()
-
+dic = dict()
 # Make some fresh tables using executescript()
 cur.executescript('''
 DROP TABLE IF EXISTS Artist;
@@ -31,8 +31,7 @@ CREATE TABLE Track (
 ''')
 
 
-fname = input('Enter file name: ')
-if ( len(fname) < 1 ) : fname = 'Library.xml'
+fname = 'Library.xml'
 
 # <key>Track ID</key><integer>369</integer>
 # <key>Name</key><string>Another One Bites The Dust</string>
@@ -48,20 +47,21 @@ def lookup(d, key):
 stuff = ET.parse(fname)
 all = stuff.findall('dict/dict/dict')
 print('Dict count:', len(all))
+genlist = list()
 for entry in all:
     if ( lookup(entry, 'Track ID') is None ) : continue
-
     name = lookup(entry, 'Name')
     artist = lookup(entry, 'Artist')
     album = lookup(entry, 'Album')
     count = lookup(entry, 'Play Count')
     rating = lookup(entry, 'Rating')
     length = lookup(entry, 'Total Time')
-
+    genre = lookup(entry, 'Genre')
+    genlist.append(genre)
     if name is None or artist is None or album is None : 
         continue
 
-    print(name, artist, album, count, rating, length)
+    # print(name, artist, album, count, rating, length)
 
     cur.execute('''INSERT OR IGNORE INTO Artist (name) 
         VALUES ( ? )''', ( artist, ) )
@@ -79,3 +79,8 @@ for entry in all:
         ( name, album_id, length, rating, count ) )
 
     conn.commit()
+for gn in genlist:
+    # print(gn)
+    dict[gn] = dict.get(gn,0)+1
+print(dict)
+cur.close()
