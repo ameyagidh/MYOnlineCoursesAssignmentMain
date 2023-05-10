@@ -253,7 +253,35 @@ import json
 # id = js['results'][0]["place_id"]
 # print(id)
 
-
+# Database
+# import sqlite3
+# conn = sqlite3.connect("dbcount.sqlite")
+# curr = conn.cursor()
+# cmd = '''
+# Drop table if exists Counts'''
+# curr.execute(cmd)
+#
+# curr.execute('''CREATE TABLE Counts(org TEXT, count INTEGER)''')
+# fname = "mbox-short.txt"
+# fh = open(fname,"r")
+#
+# for line in fh:
+#     if not line.startswith("From:"):
+#         continue
+#     lt = line.split("@")
+#     domain = lt[1]
+#     curr.execute('''SELECT count from Counts WHERE org =?''',(domain,))
+#     row = curr.fetchone()
+#     if row is None:
+#         curr.execute('''INSERT INTO Counts (org,count) VALUES(?,1)''',(domain,))
+#     else:
+#         curr.execute('''UPDATE Counts SET count = count + 1 WHERE org =?''',(domain,))
+#         conn.commit()
+#
+# cmd = '''SELECT * FROM Counts ORDER BY count DESC'''
+# for r in curr.execute(cmd):
+#     print(r[0],r[1])
+# curr.close()
 
 
 
